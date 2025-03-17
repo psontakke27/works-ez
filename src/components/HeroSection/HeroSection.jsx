@@ -40,22 +40,19 @@ function HeroSection() {
     const [successMessage, setSuccessMessage] = useState("");
     const [error, setError] = useState("");
 
-    // Handle input change
     const handleChange = (e) => {
         setFormValues({ ...formValues, [e.target.name]: e.target.value });
     };
 
-    // Email validation function
     const validateEmail = (email) => {
         const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
         return emailRegex.test(email);
     };
 
-    // Handle form submission
     const handleSubmit = async (e) => {
         e.preventDefault();
-        setError(""); // Clear previous errors
-        setSuccessMessage(""); // Clear previous success messages
+        setError(""); 
+        setSuccessMessage(""); 
 
         if (!validateEmail(formValues.email)) {
             setFormErrors({ email: "Invalid email format" });
